@@ -1,0 +1,55 @@
+<!-- index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Aquarium</title>
+
+  </head>
+
+  <body>
+    <h1>Aquarium Dashboard</h1>
+
+    <form action="/quotes" method="POST">
+      <input type="text" placeholder="name" name="name" />
+      <input type="text" placeholder="quote" name="quote" />
+      <button type="submit">Submit</button>
+    </form>
+    <h2> Data Collected </h2>
+
+    <ul class="quotes">
+    <!-- Loop through quotes -->
+    <% for(var i = 0; i < quotes.length; i++) {%>
+        <li class="quote">
+          <span><%= quotes[i]._id %></span>:
+        <!-- Output name from the iterated quote object -->
+        <span><%= quotes[i].name %></span>:
+        <!-- Output quote from the iterated quote object -->
+        <span><%= quotes[i].quote %></span>
+        </li>
+    <% } %>
+    </ul>
+    <div>
+        <h2>Update Entry</h2>
+        <p>
+          update entry
+        </p>
+          <input type="text" placeholder="id" name="id_update" />
+          <input type="text" placeholder="name" name="name_update" />
+          <input type="text" placeholder="quote" name="quote_update" />
+          <button id="update-button">Update</button>
+      </div>
+    <div>
+    <h2>Delete Entry</h2>
+    <p>
+        delete entry
+    </p>
+    <input type="text" placeholder="id" name="id_delete" />
+    <button id="delete-button">Delete</button>
+    </div>
+
+    <div id="message"></div>
+      <!-- ... -->
+    <script src="/main.js"></script>
+  </body>
+</html>
